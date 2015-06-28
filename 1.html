@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+   <meta name="apple-mobile-web-app-capable" content="yes" />
+   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<style type="text/css">
+ html,body,div,section{ margin: 0; padding: 0;}
+ body{ background: linear-gradient(#f60,#f66); height: 2000px;}
+ section{ 
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,.8);
+  box-shadow: 0 0 10px #000;
+ }
+</style>
+</head>
+<body>
+<section></section>
+<script>
+  var oSection = document.getElementsByTagName('section')[0];
+  var iLeft = 0;
+  var iTop= 0;
+  var num =0;
+  //document.body.style.height = window.innerHeight +500 +'px';
+  window.onresize =function(){ 
+       //console.log(view().w)
+       iLeft =  (view().w-oSection.offsetWidth)/2;
+       iTop = (view().h-oSection.offsetHeight)/2+pageYOffset;
+       oSection.style.left = iLeft+'px';
+       oSection.style.top = iTop+'px'; 
+  }
+function view(){
+  return {
+    w : window.innerWidth || document.documentElement.clientWidth,
+    h : window.innerHeight || document.documentElement.clientHeight  
+  }  
+}
+</script>
+</body>
+</html>
